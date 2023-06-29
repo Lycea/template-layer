@@ -1,0 +1,66 @@
+* template-layer
+
+This repository is a simple minimal layer for the spacemacs configuration of emacs to build up from.
+This started simply because except the documentation and the existing layers which you could simply copy
+and strip down there was no minimalistic working layer to build up from.
+
+** What does it contain
+Everything a simple layer, with a example function needs to have:
+
+*** init.el
+This file loads up the function file and provides the layer with the wanted name
+
+*** funcs.el
+This file contains a simple function which when loaded later on will print
+"Hello world" into your message buffer. Here is also where you can start
+to put your own functions into.
+
+*** packages.el
+A nearly empty packages.el which declares what package dependencys
+your layer has. Since this template does not have any dependencys
+this file only contain a needed stub declaration.
+
+*** link.sh
+A simple bash script which will set up a link from the cloned folder to the
+folder where the layers should be located. It uses the standard folder
+for private layers in spacemacs, if you installed it yourselfe differently
+you need to adjust the variable in it accordingly to your system.
+
+** How to install
+The only way at the moment is to clone the repository to either:
+
+a. Clone the repository into your private layer folder, for example:
+  #+BEGIN_SRC bash
+   ~/.emacs.d/private
+  #+END_SRC
+b. Clone the repository into a folder of your likeing:
+- clone into your folder :
+  #+BEGIN_SRC bash
+    ~/your/sample/path
+  #+END_SRC
+- link the folder to your eamacs private folder:  
+  #+BEGIN_SRC bash
+    ln -s /home/you/your/sample/path/template-layer ~/.emacs.d/private/template-layer
+  #+END_SRC
+  or use the provided link.sh which will do the same for your 
+  #+BEGIN_SRC bash
+  bash link.sh
+  #+END_SRC
+
+From there on you simply have to add the layer to your spacemacs configuration:
+#+BEGIN_SRC emacs-lisp
+    dotspacemacs-configuration-layers
+    '(
+      ...
+      template-layer
+      ...
+    )
+#+END_SRC
+
+** Further information
+
+For more information on how to create your own spacemacs layer consider the spacemacs
+documentation:
+
+- https://develop.spacemacs.org/doc/LAYERS.html
+- https://github.com/syl20bnr/spacemacs/blob/develop/doc/LAYERS.org#anatomy-of-a-layer 
