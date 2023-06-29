@@ -1,5 +1,6 @@
 #set the directory where your emacs private layers / packages
 #are located
+#NOTE: don't add a /  at the end else it wont work
 emacs_private_layer_directory=~/.emacs.d/private
 
 #get the path of the script, since that is the importent path
@@ -10,4 +11,7 @@ full_path=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 layer_name=$(basename ${full_path})
 
 
-echo "ls -s ${full_path} ${emacs_private_layer_directory}/${layer_name}"
+ln -s ${full_path} ${emacs_private_layer_directory}/${layer_name}
+
+#debug just print the path instead of creating a link
+#echo "ln -s ${full_path} ${emacs_private_layer_directory}/${layer_name}"
