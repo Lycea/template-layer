@@ -7,7 +7,7 @@ and strip down there was no minimalistic working layer to build up from.
 ** What does it contain
 Everything a simple layer, with a example function needs to have:
 
-*** init.el
+*** layers.el
 This file loads up the function file and provides the layer with the wanted name
 
 *** funcs.el
